@@ -1,22 +1,31 @@
 .main {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 4rem 0;
+  /* padding: 4rem 0; */
+  background-color: #161d28;
+  color: #fafafa;
 }
 
-.title {
-  line-height: 1.15;
-  font-size: 4rem;
+.leftside {
+  width: 40%;
+  min-height: 100vh;
+  background-image: url("/public/twitterImage.png");
+  border: solid 1px #fff;
 }
 
-.title a {
-  color: #0070f3;
-  text-decoration: none;
+.rightside{
+  width: 80%;
+  min-height: 100VH;
+  border: solid 1px #fff;
 }
-
-.title a:hover, .title a:focus, .title a:active {
-  text-decoration: underline;
+.btnLogs{
+  padding: 15px 80px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  border: none;
+  background-color: #3790ef;
+  cursor: pointer;
 }
