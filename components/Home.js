@@ -2,12 +2,51 @@ import styles from "../styles/Home.module.css";
 import Modal from "react-modal";
 import Head from "next/head";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import ModalUp from "./ModalUp";
 
 function Home() {
+  const dispatch = useDispatch();
+  
   const [modalUpOpen, setModalUpOpen] = useState(false);
   const [modalInOpen, setModalInOpen] = useState(false);
+  const [signUpFirstname, setSignUpFirstname] = useState("");
+  const [signUpUsername, setSignUpUsername] = useState("");
+  const [signUpPassword, setSignUpPassword] = useState("");
+
+  const [signInUsername, setSignInUsername] = useState("");
+  const [signInPassword, setSignInPassword] = useState("");
+
+  useEffect(() => {});
+
+  const handleRegister = () => {
+    fetch("http://localhost:3000/users/signup", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        firstname: signUpFirstname,
+        username: signUpUsername,
+        password: signUpPassword,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.result) {
+          dispatch(
+            login({
+              firstname: firstname,
+              username: signUpUsername,
+              token: data.token,
+            })
+          );
+          setSignUpFirstname("");
+          setSignUpUsername("");
+          setSignUpPassword("");
+          setIsModalVisible(false);
+        }
+      });
+  };
 
   const customStyles = {
     content: {
@@ -30,15 +69,12 @@ function Home() {
   function openModal() {
     setModalUpOpen(true);
   }
-
   function closeModal() {
     setModalUpOpen(false);
   }
-
   function openModalIn() {
     setModalInOpen(true);
   }
-
   function closeModalIn() {
     setModalInOpen(false);
   }
@@ -53,10 +89,24 @@ function Home() {
       <p className={styles.closX} onClick={closeModal}>
         X
       </p>
-      <input className={styles.inputStyle} placeholder="Firstname" />
-      <input className={styles.inputStyle} placeholder="Username" />
-      <input className={styles.inputStyle} placeholder="Password" />
-      <button className={styles.btnLogs}>Sign up</button>
+      <input
+        onChange={(e) => setSignUpFirstname}
+        className={styles.inputStyle}
+        placeholder="Firstname"
+      />
+      <input
+        onChange={(e) => setSignInUsername}
+        className={styles.inputStyle}
+        placeholder="Username"
+      />
+      <input
+        onChange={(e) => setSignUpPassword}
+        className={styles.inputStyle}
+        placeholder="Password"
+      />
+      <button onClick={() => handleRegister()} className={styles.btnLogs}>
+        Sign up
+      </button>
     </Modal>
   );
   const modalIn = (
