@@ -3,30 +3,77 @@ import Modal from "react-modal";
 import Head from "next/head";
 import Image from "next/image";
 import { useState } from "react";
+import ModalUp from "./ModalUp";
 
 function Home() {
-  const [modallsOpen, setlsOpen] = useState(false);
+  const [modalUpOpen, setModalUpOpen] = useState(false);
+  const [modalInOpen, setModalInOpen] = useState(false);
 
   const customStyles = {
     content: {
-      top: "20%",
+      width: "50rem",
+      height: "35rem",
+      top: "50%",
       left: "50%",
       right: "auto",
       bottom: "auto",
       marginRight: "-50%",
       display: "flex",
       flexDirection: "column",
-      gap: "10px",
+      gap: "30px",
+      borderRadius: "20px",
+      backgroundColor: "#161D28",
       transform: "translate(-50%, -50%)",
     },
   };
 
   function openModal() {
-    setlsOpen(true);
+    setModalUpOpen(true);
   }
+
   function closeModal() {
-    setlsOpen(false);
+    setModalUpOpen(false);
   }
+
+  function openModalIn() {
+    setModalInOpen(true);
+  }
+
+  function closeModalIn() {
+    setModalInOpen(false);
+  }
+
+  const modalUp = (
+    <Modal
+      isOpen={modalUpOpen}
+      onRequestClose={closeModal}
+      style={customStyles}
+      constentLabel="ExampleModal"
+    >
+      <p className={styles.closX} onClick={closeModal}>
+        X
+      </p>
+      <input className={styles.inputStyle} placeholder="Firstname" />
+      <input className={styles.inputStyle} placeholder="Username" />
+      <input className={styles.inputStyle} placeholder="Password" />
+      <button className={styles.btnLogs}>Sign up</button>
+    </Modal>
+  );
+  const modalIn = (
+    <Modal
+      isOpen={modalInOpen}
+      onRequestClose={closeModalIn}
+      style={customStyles}
+      constentLabel="ExampleModal"
+    >
+      <p className={styles.closX} onClick={closeModalIn}>
+        X
+      </p>
+      <input className={styles.inputStyle} placeholder="Username" />
+      <input className={styles.inputStyle} placeholder="Password" />
+      <button className={styles.btnLogs}>Sign up</button>
+    </Modal>
+  );
 
   return (
     <div>
@@ -54,18 +101,11 @@ function Home() {
             Sign up
           </button>
           <p>Already have an account ?</p>
-          <Modal
-            isOpen={modallsOpen}
-            onRequestClose={closeModal}
-            style={customStyles}
-            constentLabel="ExampleModal"
-          >
-            <p className={styles.closX} onClick={closeModal}>X</p>
-            <input placeholder="Username" />
-            <input placeholder="Password" />
-            <button className={styles.btnLogs}>Sign in</button>
-          </Modal>
-          <button className={styles.btnLogs}>Sign in</button>
+          <button onClick={openModalIn} className={styles.btnLogs}>
+            Sign in
+          </button>
+          <div className={styles.modalIn}>{modalUp}</div>
+          <div className={styles.modalIn}>{modalIn}</div>
         </div>
       </main>
     </div>
