@@ -10,18 +10,29 @@
 }
 
 .leftside {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 40%;
   min-height: 100vh;
-  background-image: url("/public/twitterImage.png");
   border: solid 1px #fff;
+  background-image: url("../public/twitterImage.png");
+}
+.rightLogo {
+  padding: 0 0 200px 0;
 }
 
-.rightside{
+.rightside {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
   width: 80%;
-  min-height: 100VH;
+  min-height: 100vh;
   border: solid 1px #fff;
+  padding: 5%;
 }
-.btnLogs{
+.btnLogs {
   padding: 15px 80px;
   border-radius: 25px;
   font-size: 1.2rem;
