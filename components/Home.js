@@ -6,7 +6,6 @@ import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import ModalUp from "./ModalUp";
 import Login from "./Login";
-import Header from "./Header";
 
 function Home() {
   return (
@@ -14,9 +13,6 @@ function Home() {
       <Head>
         <title>Hackatweet - Home</title>
       </Head>
-
-      {/* <Header /> */}
-
       <Login />
     </div>
   );
