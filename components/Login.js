@@ -3,14 +3,18 @@ import Modal from "react-modal";
 import Head from "next/head";
 import Image from "next/image";
 import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { login, logout, signUp } from "../reducers/users";
 import ModalUp from "./ModalUp";
 
 function Login() {
   const dispatch = useDispatch();
+  // const user = useSelector((state) => state.user.value);
 
   const [modalUpOpen, setModalUpOpen] = useState(false);
   const [modalInOpen, setModalInOpen] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState();
+
   const [signUpFirstname, setSignUpFirstname] = useState("");
   const [signUpUsername, setSignUpUsername] = useState("");
   const [signUpPassword, setSignUpPassword] = useState("");
@@ -32,10 +36,11 @@ function Login() {
     })
       .then((response) => response.json())
       .then((data) => {
+        console.log(data);
         if (data.result) {
           dispatch(
             login({
-              firstname: firstname,
+              firstname: signUpFirstname,
               username: signUpUsername,
               token: data.token,
             })
@@ -57,21 +62,22 @@ function Login() {
         password: signInPassword,
       }),
     })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.result) {
-        dispatch(
-          login({
-            firstname: firstname,
-            username: signUpUsername,
-            token: data.token,
-          })
-        );
-        setSignInUsername("");
-        setSignInPassword("");
-        setIsModalVisible(false);
-      }
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        console.log(data);
+        // if (data.result) {
+        //   dispatch(
+        //     login({
+        //       firstname: signInUsername, //!
+        //       password: signInPassword,
+        //       token: data.token,
+        //     })
+        //   );
+        //   setSignInUsername("");
+        //   setSignInPassword("");
+        //   setIsModalVisible(false);
+        // }
+      });
   };
 
   const customStyles = {
@@ -116,17 +122,20 @@ function Login() {
         X
       </p>
       <input
-        onChange={(e) => setSignUpFirstname}
+        onChange={(e) => setSignUpFirstname(e.target.value)}
+        value={signUpFirstname}
         className={styles.inputStyle}
         placeholder="Firstname"
       />
       <input
-        onChange={(e) => setSignUpUsername}
+        onChange={(e) => setSignUpUsername(e.target.value)}
+        value={signUpUsername}
         className={styles.inputStyle}
         placeholder="Username"
       />
       <input
-        onChange={(e) => setSignUpPassword}
+        onChange={(e) => setSignUpPassword(e.target.value)}
+        value={signUpPassword}
         className={styles.inputStyle}
         placeholder="Password"
       />
@@ -150,12 +159,14 @@ function Login() {
         X
       </p>
       <input
-        onChange={(e) => setSignInUsername}
+        onChange={(e) => setSignInUsername(e.target.value)}
+        value={signInUsername}
         className={styles.inputStyle}
         placeholder="Username"
       />
       <input
-        onChange={(e) => setSignInPassword}
+        onChange={(e) => setSignInPassword(e.target.value)}
+        value={signInPassword}
         className={styles.inputStyle}
         placeholder="Password"
       />
