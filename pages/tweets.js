@@ -38,6 +38,7 @@ export default function Tweets() {
             </div>
             {/* <h2>Hello</h2> */}
             <p className={styles.tweet}>Destiné à devenir un "con - ponent"</p>
+            <div className={styles.lol}>❤️ 🗑️</div>
           </div>
         </div>
         <div className={styles.rightSide}>

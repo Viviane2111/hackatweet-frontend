@@ -79,6 +79,7 @@ function Login() {
         }
       });
   };
+  const logTweet = () => {};
 
   const customStyles = {
     content: {
@@ -170,9 +171,11 @@ function Login() {
         className={styles.inputStyle}
         placeholder="Password"
       />
-      <button onClick={() => handleLogin()} className={styles.btnLogs}>
-        Sign in
-      </button>
+      <Link href={"./tweets"}>
+        <button onClick={() => handleLogin()} className={styles.btnLogs}>
+          Sign in
+        </button>
+      </Link>
     </Modal>
   );
   return (
@@ -190,7 +193,7 @@ function Login() {
 
         <div className={styles.rightside}>
           <div className={styles.rightLogo}>
-          <div className={styles.tLogo}>
+            <div className={styles.tLogo}>
               <Link href={"/tweets"}>
                 <Image
                   src="/twitterLogo.png"
@@ -201,7 +204,9 @@ function Login() {
               </Link>
             </div>
           </div>
-          <h1>See What's <br/> happening</h1>
+          <h1>
+            See What's <br /> happening
+          </h1>
           <h3 className={styles.subTitle}>Create your Hackatweet account</h3>
           <h3>Join Hackatweet today</h3>
 

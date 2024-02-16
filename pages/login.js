@@ -170,9 +170,17 @@ function Login() {
         className={styles.inputStyle}
         placeholder="Password"
       />
-      <button onClick={() => handleLogin()} className={styles.btnLogs}>
-        Sign in
-      </button>
+
+        <button onClick={() => handleLogin()} className={styles.btnLogs}>
+          Sign in
+        </button>
+
+      {/* <Link href={"./tweets"}>
+        <button onClick={() => handleLogin()} className={styles.btnLogs}>
+          Sign in
+        </button>
+      </Link> */}
+      
     </Modal>
   );
   return (

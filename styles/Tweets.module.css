@@ -48,6 +48,9 @@
   align-items: start;
   /* justify-content: space-between; */
 }
+.lol{
+  padding-top: 15px;
+}
 .userlogo {
   font-size: 2rem;
   padding: 5px 0 5px 5px;
