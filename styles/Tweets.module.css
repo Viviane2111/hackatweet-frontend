@@ -9,28 +9,53 @@
 }
 .leftSide {
   width: 20vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 10px;
+}
+.userImg {
+  font-size: 2rem;
 }
 .middleSide {
   width: 60vw;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  border: 1px solid #fff;
+  /* align-items: center; */
+  border-left: 1px solid #666;
+  border-right: 1px solid #666;
 }
 .commonHeaded {
-    border: 1px solid #fff;
-    width: 60vw;
+  border-bottom: 1px solid #666;
+  width: 60vw;
 }
-.homeTitle{
-    margin-left: 10px;
+.homeTitle {
+  margin-left: 10px;
 }
-.inputTweet{
-    margin: o 10px;
+.inputTweet {
+  margin: o 10px;
 }
-.input{
-    
+.input {
+  display: block;
+  width: 70%;
+  background-color: transparent;
+  margin: 10px auto;
+  border: none;
+  border-bottom: 1px solid #666;
 }
 .lastTweets {
+  display: flex;
+  align-items: start;
+  /* justify-content: space-between; */
+}
+.userlogo {
+  font-size: 2rem;
+  padding: 5px 0 5px 5px;
+}
+.tweet{
+  padding: 0 10px;
+  border-bottom: #666 1px solid;
+  width: 50vw;
 }
 .rightSide {
   width: 20vw;

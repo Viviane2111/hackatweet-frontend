@@ -2,10 +2,10 @@ import styles from "../styles/Login.module.css";
 import Modal from "react-modal";
 import Head from "next/head";
 import Image from "next/image";
+import Link from "next/link";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login, logout, signUp } from "../reducers/users";
-import ModalUp from "./ModalUp";
 
 function Login() {
   const dispatch = useDispatch();
@@ -190,8 +190,15 @@ function Login() {
 
         <div className={styles.rightside}>
           <div className={styles.rightLogo}>
-            <div className={styles.tLogo}>
-              <Image src="/twitterLogo.png" alt="Logo" width={80} height={80} />
+          <div className={styles.tLogo}>
+              <Link href={"/tweets"}>
+                <Image
+                  src="/twitterLogo.png"
+                  alt="Logo"
+                  width={60}
+                  height={60}
+                />
+              </Link>
             </div>
           </div>
           <h1>See What's <br/> happening</h1>

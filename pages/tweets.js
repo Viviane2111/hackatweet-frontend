@@ -19,22 +19,33 @@ export default function Tweets() {
               <Image src="/twitterLogo.png" alt="Logo" width={60} height={60} />
             </Link>
           </div>
-          <h1>Coucou</h1>
+          <h1>Coucou 💫</h1>
+          <div>
+            <FontAwesomeIcon className={styles.userImg} icon={faUser} />
+          </div>
         </div>
         <div className={styles.middleSide}>
           <div className={styles.commonHeaded}>
             <h3 className={styles.homeTitle}>Home</h3>
             <div className={styles.inputTweet}>
-              <input className={styles.input} />
+              <input className={styles.input} placeholder="What's up?" />
             </div>
           </div>
+
           <div className={styles.lastTweets}>
-            <h2>Hello</h2>
-            <p>Destiné à devenir un "component"</p>
+            <div className={styles.userIm}>
+              <FontAwesomeIcon className={styles.userlogo} icon={faUser} />
+            </div>
+            {/* <h2>Hello</h2> */}
+            <p className={styles.tweet}>Destiné à devenir un "con - ponent"</p>
           </div>
         </div>
         <div className={styles.rightSide}>
-          <h2>Hello</h2>
+          <h3>Trends</h3>
+          <div>
+            <p>#unNouveauJour</p>
+            <p>#uneAideBienvenue</p>
+          </div>
         </div>
       </div>
     </div>
